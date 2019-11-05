@@ -1,0 +1,70 @@
+server:
+  port: 10000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zbdb?serverTimezone=UTC&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
+
+codegenerator:
+  #全局配置
+  global:
+    #作者(可修改)
+    author: zb
+    #生成文件的包总路径 (可修改)
+    packge-path: com.zb.base.demo
+    #模板的总路径(不可修改)
+    template-base-path: classpath:template/
+    #生成文件的总路径-绝对路径(可修改)
+    write-file-base-path: E:\git\codegenerate\springboot-code-generator\src\main\resources\write\
+    #数据库表前缀(可修改)
+    table-prefix: base_
+    #mybatis生成的路径 (可修改)
+    
+    mapper-path: D:\Git-Project\base\base-demo\base-demo-dao\src\main\resources\mybatis-mappers
+    #生成entity文件的总路径-绝对路径(可修改)
+    write-file-base-entity-path: D:\Git-Project\common-model\src\main\java\com\zb\bean\entity\base\demo\container
+    #生成entity文件的总路径-绝对路径(可修改)
+    write-file-base-vo-path: D:\Git-Project\base\base-demo\base-demo-bean\src\main\java\com\zb\base\demo\container
+    #生成dao文件的总路径-绝对路径(可修改)
+    write-file-base-dao-path: D:\Git-Project\base\base-demo\base-demo-dao\src\main\java\com\zb\base\demo\dao\container
+    #生成service文件的总路径-绝对路径(可修改)
+    write-file-base-service-path: D:\Git-Project\base\base-demo\base-demo-service\src\main\java\com\zb\base\demo\service\container
+    #生成service-impl文件的总路径-绝对路径(可修改)
+    write-file-base-service-impl-path: D:\Git-Project\base\base-demo\base-demo-service\src\main\java\com\zb\base\demo\service\impl\container
+    #生成controller文件的总路径-绝对路径(可修改)
+    write-file-base-controller-path: D:\Git-Project\base\base-demo\base-demo-controller\src\main\java\com\zb\base\demo\controller\container
+
+  #继承配置
+  extends:
+    #需要继承Entity父类
+    extends-base-entity: true
+    #继承Entity父类：包+名称，不用写文件后缀
+    base-entity-path:  com.zb.bean.entity.AbstractBaseEntity
+    #bean path
+    base-path:  com.zb.bean.entity.base.demo.container
+
+    #需要继承DAO父类
+    extends-base-dao: true
+    #继承DAO父类：包+名称，不用写文件后缀
+    base-dao-path: tk.mybatis.mapper.common.Mapper
+
+    #需要继承Service父类
+    extends-base-service: false
+    #继承Service父类：包+名称，不用写文件后缀
+    base-service-path: com.design.framework.base.service.BaseService
+
+    #需要继承ServiceImpl父类
+    extends-base-service-impl: false
+    #继承ServiceImpl父类：包+名称，不用写文件后缀
+    service-impl-path: com.design.framework.base.service.impl.BaseServiceImpl
+
+    #需要继承Controller父类
+    extends-base-controller: false
+    #继承Controller父类：包+名称，不用写文件后缀
+    base-controller-path: com.design.framework.base.controller.BaseController
+    
+
+
+  

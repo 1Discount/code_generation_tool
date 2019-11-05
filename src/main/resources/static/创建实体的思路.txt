@@ -1,0 +1,4 @@
+1.了解mysql  information_schema 库columns表  （测试：tb_account_user）
+2，获取相关表字段 （sql）
+3.编写实体模板   (txt)
+4.获取文件流方式，替换模板字段，生成新文件 (文件流)

@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) 2019 www.zb.com Inc. All rights reserved.
+ */
+package ${packgePath};
+
+import ${voPackgePath}.${className}VO;
+import com.zb.bean.model.common.Page;
+import com.zb.bean.model.common.PageRequest;
+
+ /**
+  * ${classDescription}
+  * @author: ${author}
+  * @date: ${datatime}
+  * @version V1.0
+  *
+  */
+public interface ${className}Service {
+
+    /**
+     * 分页查询${classDescription}
+     * @author ${author}
+     * @date ${datatime}
+     * @param  pageRequest 分页请求参数
+     * @return Page<${className}VO> 分页响应
+     */
+    Page<${className}VO> queryByPage(PageRequest<${className}VO> pageRequest);
+
+    /**
+     * 保存${classDescription}
+     * @author ${author}
+     * @date ${datatime}
+     * @param ${instanceName}VO ${classDescription}
+     * @return ${className}VO
+     */
+    ${className}VO save(${className}VO ${instanceName}VO);
+
+    /**
+     * 根据id获取${classDescription}
+     * @author ${author}
+     * @date ${datatime}
+     * @param id
+     * @return ${className}VO
+     */
+    ${className}VO getById(Long id);
+
+    /**
+     * 修改${classDescription}
+     * @author ${author}
+     * @date ${datatime}
+     * @param ${instanceName}VO
+     * @return int 修改影响行数
+     */
+    int update(${className}VO ${instanceName}VO);
+
+    /**
+     * 删除${classDescription}
+     * @author ${author}
+     * @date ${datatime}
+     * @param id
+     * @return int 删除影响行数
+     */
+    int delete(Long id);
+
+}

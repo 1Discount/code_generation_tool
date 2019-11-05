@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) 2019 www.zb.com Inc. All rights reserved.
+ */
+package ${packgePath};
+
+import ${extendBaseEntityPath};
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+/**
+ * ${classDescription}
+ * @Description:
+ * @author:  ${author}
+ * @date:   ${datatime}
+ * @version V1.0
+ *
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class ${className} extends ${extendBaseEntity} implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+${entityData}
+	
+
+}

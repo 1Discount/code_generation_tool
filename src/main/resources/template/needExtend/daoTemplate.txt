@@ -1,0 +1,20 @@
+/**
+ * Copyright (c) 2019 www.zb.com Inc. All rights reserved.
+ */
+package ${packgePath};
+
+import ${extendsBaseDaoPath};
+import ${entityPackgePath}.${entityClassName};
+
+/**
+ * ${classDescription}
+ * @Title:
+ * @Description: ${classDescription}
+ * @author: ${author}
+ * @date: ${datatime}
+ * @version V1.0
+ *
+ */
+public interface ${className}DAO extends Mapper<${entityClassName}>{
+	
+}

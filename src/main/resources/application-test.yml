@@ -1,0 +1,55 @@
+server:
+  port: 10000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+    
+codegenerator:
+  #全局配置
+  global:
+    #作者(可修改)
+    author: JohnDeng
+    #生成文件的包总路径(可修改)
+    packge-path: org.john.springbootcodegenerator
+    #模板的总路径(不可修改)
+    template-base-path: classpath:template/
+    #生成文件的总路径-绝对路径(可修改)
+    write-file-base-path: I:\project\springboot-code-generator\src\main\resources\write\
+    #数据库表前缀(可修改)
+    table-prefix: tb_
+    #mybatis生成的路径(可修改)
+    mapper-path: I:\project\springboot-code-generator\src\main\resources\write\
+    
+    
+  #继承配置
+  extends:
+    #需要继承Entity父类
+    extends-base-entity: true
+    #继承Entity父类：包+名称，不用写文件后缀
+    base-entity-path:  com.design.framework.base.controller.BaseEntity
+    
+    #需要继承DAO父类
+    extends-base-dao: true
+    #继承DAO父类：包+名称，不用写文件后缀
+    base-dao-path: com.design.framework.base.dao.BaseDao
+    
+    #需要继承Service父类
+    extends-base-service: true
+    #继承Service父类：包+名称，不用写文件后缀
+    base-service-path: com.design.framework.base.service.BaseService
+    
+    #需要继承ServiceImpl父类
+    extends-base-service-impl: true
+    #继承ServiceImpl父类：包+名称，不用写文件后缀
+    base-service-impl-path: com.design.framework.base.service.impl.BaseServiceImpl
+     
+    #需要继承Controller父类
+    extends-base-controller: true
+    #继承Controller父类：包+名称，不用写文件后缀
+    base-controller-path: com.design.framework.base.controller.BaseController
+    
+  
+  

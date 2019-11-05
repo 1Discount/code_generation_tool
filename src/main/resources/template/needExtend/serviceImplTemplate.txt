@@ -1,0 +1,97 @@
+/**
+ * Copyright (c) 2019 www.zb.com Inc. All rights reserved.
+ */
+package ${packgePath};
+
+import javax.annotation.Resource;
+
+import ${daoPackgePath}.${className}DAO;
+import ${entityPackgePath}.${entityClassName};
+import ${voPackgePath}.${className}VO;
+import ${servicePackgePath}.${className}Service;
+import com.zb.bean.model.common.Page;
+import com.zb.bean.model.common.PageRequest;
+import com.zb.common.exception.WmsBusinessException;
+import com.zb.common.page.PageHelper;
+import com.zb.core.util.bean.BeanUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+ /**
+  * ${classDescription}
+  * @author: ${author}
+  * @date: ${datatime}
+  * @version V1.0
+  *
+  */
+@Slf4j
+@Service
+public class ${className}ServiceImpl implements ${className}Service {
+	@Resource
+	private ${className}DAO ${lowerClassName}DAO;
+	
+    @Override
+    public Page<${className}VO> queryByPage(PageRequest<${className}VO> pageRequest) {
+        try {
+        ${className}VO ${lowerClassName}VO = pageRequest.getParam();
+        ${entityClassName} ${lowerClassName} = new ${entityClassName}();
+        BeanUtil.copyProperties(${lowerClassName}VO, ${lowerClassName});
+        // 分页查询，直接返回分页后的数据
+        return PageHelper.startPage(() -> ${lowerClassName}DAO.select(${lowerClassName}), ${className}VO.class,
+            pageRequest.getCurrentPage(), pageRequest.getPageSize(), "create_time desc");
+        } catch (Exception e) {
+            log.error("分页查询${classDescription}出错！", e);
+            throw new WmsBusinessException("entBase-${lowerClassName}-queryByPage-01");
+        }
+    }
+
+    @Override
+    public ${className}VO save(${className}VO ${lowerClassName}VO)  {
+        try {
+            ${className}VO vo = new ${className}VO();
+            ${entityClassName} ${lowerClassName} = new ${entityClassName}();
+            BeanUtil.copyProperties(${lowerClassName}VO, ${lowerClassName});
+            ${lowerClassName}DAO.insertSelective(${lowerClassName});
+            BeanUtil.copyProperties(${lowerClassName}, vo);
+            return vo;
+        } catch (Exception e) {
+            log.error("新增${classDescription}出错！", e);
+            throw new WmsBusinessException("entBase-${lowerClassName}-save-01");
+        }
+    }
+
+    @Override
+    public ${className}VO getById(Long id)  {
+        try {
+            ${className}VO vo = new ${className}VO();
+            ${entityClassName} ${lowerClassName} = ${lowerClassName}DAO.selectByPrimaryKey(id);
+            BeanUtil.copyProperties(${lowerClassName}, vo);
+            return vo;
+        } catch (Exception e) {
+            log.error("根据主键id查询${classDescription}出错！", e);
+            throw new WmsBusinessException("entBase-${lowerClassName}-getById-01");
+        }
+    }
+
+    @Override
+    public int update(${className}VO ${lowerClassName}VO)  {
+        try {
+            ${entityClassName} ${lowerClassName} = new ${entityClassName}();
+            BeanUtil.copyProperties(${lowerClassName}VO, ${lowerClassName});
+            return ${lowerClassName}DAO.updateByPrimaryKey(${lowerClassName});
+        } catch (Exception e) {
+            log.error("修改${classDescription}出错！", e);
+            throw new WmsBusinessException("entBase-${lowerClassName}-update-01");
+        }
+    }
+
+    @Override
+    public int delete(Long id)  {
+        try {
+            return ${lowerClassName}DAO.deleteByPrimaryKey(id);
+        } catch (Exception e) {
+            log.error("删除${classDescription}出错！", e);
+            throw new WmsBusinessException("entBase-${lowerClassName}-delete-01");
+        }
+    }
+	
+}

@@ -1,0 +1,97 @@
+/**
+ * Copyright (c) 2019 www.zb.com Inc. All rights reserved.
+ */
+package ${packgePath};
+
+import ${servicePackgePath}.${className}Service;
+import ${voPackgePath}.${className}VO;
+import com.zb.bean.model.common.Page;
+import com.zb.bean.model.common.PageRequest;
+import com.zb.common.annotation.LogAnnotation;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+
+/**
+ * ${classDescription}
+ * @author ${author}
+ * @datatime ${datatime}
+ */
+@RestController
+@RequestMapping("/${lowerClassName}")
+public class ${className}Controller {
+	
+	@Resource
+	private ${className}Service ${lowerClassName}Service;
+
+	/**
+     * @description 分页查询${classDescription}信息
+     * @author ${author}
+     * @date ${datatime}
+     * @param pageRequest
+     * @return
+     */
+    @LogAnnotation(module = "分页查询${classDescription}信息")
+    @ApiOperation(value = "分页查询${classDescription}信息", notes = "分页查询${classDescription}信息", produces = "application/json")
+    @PostMapping("/page")
+    public Page<${className}VO> queryByPage(@RequestBody PageRequest<${className}VO> pageRequest) {
+       return ${lowerClassName}Service.queryByPage(pageRequest);
+    }
+	
+    /**
+	 * 根据id查询${classDescription}信息
+	 * @author ${author}
+	 * @date ${datatime}
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/{id}")
+	@LogAnnotation(module = "根据id查询${classDescription}信息")
+	@ApiOperation(value = "根据id查询${classDescription}信息接口", notes = "根据id查询${classDescription}信息", produces = "application/json")
+	public ${className}VO getById(@PathVariable Long id) {
+		return ${lowerClassName}Service.getById(id);
+	}
+
+	/**
+	 * 新增${classDescription}信息
+	 * @author ${author}
+	 * @date 2019/10/25 16:52
+	 * @param ${lowerClassName}VO
+	 * @return
+	 */
+	@LogAnnotation(module = "新增${classDescription}信息")
+	@ApiOperation(value = "新增${classDescription}信息接口", notes = "新增${classDescription}信息", produces = "application/json")
+	@PostMapping("/save")
+	public ${className}VO save(@RequestBody ${className}VO ${lowerClassName}VO) {
+		return ${lowerClassName}Service.save(${lowerClassName}VO);
+	}
+
+	/**
+	 * @description 修改${classDescription}信息
+	 * @author ${author}
+	 * @date 2019/10/25 16:52
+	 * @param ${lowerClassName}VO
+	 * @return
+	 */
+	@LogAnnotation(module = "修改${classDescription}信息")
+	@ApiOperation(value = "修改${classDescription}信息接口", notes = "修改${classDescription}信息", produces = "application/json")
+	@PutMapping("/update")
+	public void update(@RequestBody ${className}VO ${lowerClassName}VO) {
+		${lowerClassName}Service.update(${lowerClassName}VO);
+	}
+
+	/**
+	 * @description 删除${classDescription}信息
+	 * @author ${author}
+	 * @date 2019/10/25 16:53
+	 * @param id
+	 * @return
+	 */
+	@LogAnnotation(module = "删除${classDescription}信息")
+	@ApiOperation(value = "删除${classDescription}信息接口", notes = "删除${classDescription}信息", produces = "application/json")
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable Long id) {
+		${lowerClassName}Service.delete(id);
+	}
+}
